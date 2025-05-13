@@ -42,7 +42,11 @@ public class AgendaApp {
     public void processarOpcao(int opcao) {
         switch (opcao) {
             case 1:
-                adicionarContato();
+                try {
+                    adicionarContato();
+                } catch (InvalidEmail e) {
+                    System.out.println(e.getMessage());
+                }
                 break;
             case 2:
                 removerContato();
@@ -61,7 +65,7 @@ public class AgendaApp {
         }
     }
 
-    private void adicionarContato() {
+    private void adicionarContato() throws InvalidEmail {
         System.out.print("Nome: ");
         String name = scanner.nextLine();
         System.out.print("Telefone: ");
@@ -74,8 +78,12 @@ public class AgendaApp {
         c.setNumber(number);
         c.setEmail(email);
 
-        agenda.addContact(c);
-        System.out.println("successfully added a contact!");
+        if (Validator.emailValidator(c.getEmail())) {
+            agenda.addContact(c);
+            System.out.println("successfully added a contact!");
+        } else {
+            throw new InvalidEmail("Contact not saved. Invalid email");
+        }
     }
 
     private void removerContato() {
