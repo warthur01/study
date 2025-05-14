@@ -14,10 +14,10 @@ public class AgendaApp {
 
     public static void main(String[] args) {
         AgendaApp app = new AgendaApp();
-        app.exibirMenu();
+        app.showMenu();
     }
 
-    public void exibirMenu() {
+    public void showMenu() {
         int option;
         do {
             System.out.println("\n--- Agenda Menu ---");
@@ -44,7 +44,7 @@ public class AgendaApp {
             case 1:
                 try {
                     addCont();
-                } catch (InvalidEmail e) {
+                } catch (InvalidEmail | InvalidNumber e) {
                     System.out.println(e.getMessage());
                 }
                 break;
@@ -65,7 +65,7 @@ public class AgendaApp {
         }
     }
 
-    private void addCont() throws InvalidEmail {
+    private void addCont() throws InvalidEmail, InvalidNumber {
         System.out.print("Name: ");
         String name = scanner.nextLine();
         System.out.print("Number: ");
@@ -78,11 +78,9 @@ public class AgendaApp {
         c.setNumber(number);
         c.setEmail(email);
 
-        if (Validator.emailValidator(c.getEmail())) {
+        if (Validator.emailValidator(c.getEmail()) && Validator.phoneValidator(c.getNumber())) {
             agenda.addContact(c);
             System.out.println("successfully added a contact!");
-        } else {
-            throw new InvalidEmail("Contact not saved. Invalid email");
         }
     }
 
