@@ -27,10 +27,7 @@ public class Agenda {
             }
         }
         return found;
-        // TODO: Implementar futuramente
-        /*
-        métodos para exportação e importação de arquivos de agenda
-         */
+
     }
 
     public void listContacts() {

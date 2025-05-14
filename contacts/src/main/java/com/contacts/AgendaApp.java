@@ -18,7 +18,7 @@ public class AgendaApp {
     }
 
     public void exibirMenu() {
-        int opcao;
+        int option;
         do {
             System.out.println("\n--- Agenda Menu ---");
             System.out.println("1. Add contact");
@@ -29,46 +29,46 @@ public class AgendaApp {
             System.out.print("Chose a option: ");
 
             try {
-                opcao = Integer.parseInt(scanner.nextLine());
-                processarOpcao(opcao);
+                option = Integer.parseInt(scanner.nextLine());
+                processarOpcao(option);
             } catch (NumberFormatException e) {
-                System.out.println("Entrada inválida. Digite um número.");
-                opcao = -1; // Força repetição
+                System.out.println("Invalid input");
+                option = -1; // Força repetição
             }
 
-        } while (opcao != 0);
+        } while (option != 0);
     }
 
     public void processarOpcao(int opcao) {
         switch (opcao) {
             case 1:
                 try {
-                    adicionarContato();
+                    addCont();
                 } catch (InvalidEmail e) {
                     System.out.println(e.getMessage());
                 }
                 break;
             case 2:
-                removerContato();
+                removeCont();
                 break;
             case 3:
-                buscarContato();
+                searchCont();
                 break;
             case 4:
                 agenda.listContacts();
                 break;
             case 0:
-                System.out.println("Encerrando o programa...");
+                System.out.println("Finishing the program");
                 break;
             default:
-                System.out.println("Opção inválida.");
+                System.out.println("Invalid option.");
         }
     }
 
-    private void adicionarContato() throws InvalidEmail {
-        System.out.print("Nome: ");
+    private void addCont() throws InvalidEmail {
+        System.out.print("Name: ");
         String name = scanner.nextLine();
-        System.out.print("Telefone: ");
+        System.out.print("Number: ");
         String number = scanner.nextLine();
         System.out.print("Email: ");
         String email = scanner.nextLine();
@@ -86,22 +86,22 @@ public class AgendaApp {
         }
     }
 
-    private void removerContato() {
+    private void removeCont() {
         System.out.print("Removed contact's name: ");
-        String nome = scanner.nextLine();
-        agenda.removeContact(nome);
+        String name = scanner.nextLine();
+        agenda.removeContact(name);
         System.out.println("Contact(s) removed(s) (if existed).");
     }
 
-    private void buscarContato() {
+    private void searchCont() {
         System.out.print("Name to search: ");
-        String nome = scanner.nextLine();
-        List<Contacts> encontrados = agenda.searchContact(nome);
+        String name = scanner.nextLine();
+        List<Contacts> found = agenda.searchContact(name);
 
-        if (encontrados.isEmpty()) {
+        if (found.isEmpty()) {
             System.out.println("No contact found.");
         } else {
-            for (Contacts c : encontrados) {
+            for (Contacts c : found) {
                 System.out.println("Name: " + c.getName());
                 System.out.println("Number: " + c.getNumber());
                 System.out.println("Email: " + c.getEmail());
@@ -110,3 +110,7 @@ public class AgendaApp {
         }
     }
 }
+// TODO: Implementar futuramente,validator telefone,implementar metodo para salvar no arquivo,carregar do arquivo,edicao de contato,excessao personalizada para o validator do numero,substituir loops por stream
+        /*
+        métodos para exportação e importação de arquivos de agenda
+         */
