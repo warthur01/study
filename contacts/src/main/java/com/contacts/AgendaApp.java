@@ -44,7 +44,7 @@ public class AgendaApp {
             case 1:
                 try {
                     addCont();
-                } catch (InvalidEmail | InvalidNumber e) {
+                } catch (InvalidEmailException | InvalidNumberException e) {
                     System.out.println(e.getMessage());
                 }
                 break;
@@ -65,7 +65,7 @@ public class AgendaApp {
         }
     }
 
-    private void addCont() throws InvalidEmail, InvalidNumber {
+    private void addCont() throws InvalidEmailException, InvalidNumberException {
         System.out.print("Name: ");
         String name = scanner.nextLine();
         System.out.print("Number: ");
@@ -108,7 +108,7 @@ public class AgendaApp {
         }
     }
 }
-// TODO: Implementar futuramente,validator telefone,implementar metodo para salvar no arquivo,carregar do arquivo,edicao de contato,excessao personalizada para o validator do numero,substituir loops por stream
+// TODO: Implementar futuramente,implementar metodo para salvar no arquivo,carregar do arquivo,edicao de contato
         /*
         métodos para exportação e importação de arquivos de agenda
          */
