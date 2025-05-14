@@ -101,12 +101,12 @@ public class AgendaApp {
         if (found.isEmpty()) {
             System.out.println("No contact found.");
         } else {
-            for (Contacts c : found) {
+            found.stream().forEach(c -> {
                 System.out.println("Name: " + c.getName());
                 System.out.println("Number: " + c.getNumber());
                 System.out.println("Email: " + c.getEmail());
-                System.out.println("----------------------");
-            }
+                System.out.println("-------------------------");
+            });
         }
     }
 }
