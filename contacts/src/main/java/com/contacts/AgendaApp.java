@@ -25,6 +25,7 @@ public class AgendaApp {
             System.out.println("2. Remove contact");
             System.out.println("3. Search contact");
             System.out.println("4. List contacts");
+            System.out.println("5. Edit contact");
             System.out.println("0. Exit");
             System.out.print("Chose a option: ");
 
@@ -57,6 +58,13 @@ public class AgendaApp {
             case 4:
                 agenda.listContacts();
                 break;
+            case 5:
+                try {
+                    editCont();
+                } catch (InvalidEmailException | InvalidNumberException e) {
+                    System.out.println(e.getMessage());
+                }
+                break;
             case 0:
                 System.out.println("Finishing the program");
                 break;
@@ -64,6 +72,33 @@ public class AgendaApp {
                 System.out.println("Invalid option.");
         }
     }
+
+    private void addCont(Contact contact) throws InvalidEmailException, InvalidNumberException {
+        System.out.print("Name: ");
+        String name = scanner.nextLine();
+        System.out.print("Number: ");
+        String number = scanner.nextLine();
+        System.out.print("Email: ");
+        String email = scanner.nextLine();
+
+        if (!name.isEmpty()) {
+            contact.setName(name);
+        }
+
+        if (!number.isEmpty()) {
+            contact.setNumber(number);
+        }
+        if (!email.isEmpty()) {
+            contact.setEmail(email);
+        }
+
+        if (Validator.emailValidator(contact.getEmail()) && Validator.phoneValidator(contact.getNumber())) {
+            agenda.addContact(contact);
+            System.out.println("successfully saved a contact!");
+        }
+
+    }
+
 
     private void addCont() throws InvalidEmailException, InvalidNumberException {
         System.out.print("Name: ");
@@ -73,14 +108,14 @@ public class AgendaApp {
         System.out.print("Email: ");
         String email = scanner.nextLine();
 
-        Contacts c = new Contacts();
+        Contact c = new Contact();
         c.setName(name);
         c.setNumber(number);
         c.setEmail(email);
 
         if (Validator.emailValidator(c.getEmail()) && Validator.phoneValidator(c.getNumber())) {
             agenda.addContact(c);
-            System.out.println("successfully added a contact!");
+            System.out.println("successfully saved a contact!");
         }
     }
 
@@ -91,10 +126,14 @@ public class AgendaApp {
         System.out.println("Contact(s) removed(s) (if existed).");
     }
 
+    private void removeCont(String name) {
+        agenda.removeContact(name);
+    }
+
     private void searchCont() {
         System.out.print("Name to search: ");
         String name = scanner.nextLine();
-        List<Contacts> found = agenda.searchContact(name);
+        List<Contact> found = agenda.searchContact(name);
 
         if (found.isEmpty()) {
             System.out.println("No contact found.");
@@ -107,8 +146,23 @@ public class AgendaApp {
             });
         }
     }
+
+    private void editCont() throws InvalidEmailException, InvalidNumberException {
+        System.out.print("Name of the contact to edit: ");
+        String name = scanner.nextLine();
+
+        List<Contact> found = agenda.searchContact(name);
+        Contact contact = found.getFirst();
+
+        if (contact == null) {
+            System.out.println("No contact found with that name.");
+        } else {
+            removeCont(contact.getName());
+            addCont(contact);
+        }
+    }
 }
-// TODO: Implementar futuramente,implementar metodo para salvar no arquivo,carregar do arquivo,edicao de contato,aula expressao regular
+// TODO: Implementar futuramente,implementar metodo para salvar no arquivo,carregar do arquivo,criar id e implementar no programa,mudar o uso de list para set
         /*
         métodos para exportação e importação de arquivos de agenda
          */

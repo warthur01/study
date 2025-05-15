@@ -5,13 +5,13 @@ import java.util.List;
 
 public class Agenda {
 
-    private final List<Contacts> contacts;
+    private final List<Contact> contacts;
 
     public Agenda() {
         this.contacts = new ArrayList<>();
     }
 
-    public void addContact(Contacts c) {
+    public void addContact(Contact c) {
         contacts.add(c);
     }
 
@@ -19,9 +19,9 @@ public class Agenda {
         contacts.removeIf(c -> c.getName().equalsIgnoreCase(name));
     }
 
-    public List<Contacts> searchContact(String name) {
-        List<Contacts> found = new ArrayList<>();
-        for (Contacts c : contacts) {
+    public List<Contact> searchContact(String name) {
+        List<Contact> found = new ArrayList<>();
+        for (Contact c : contacts) {
             if (c.getName().equalsIgnoreCase(name)) {
                 found.add(c);
             }
@@ -31,7 +31,7 @@ public class Agenda {
     }
 
     public void listContacts() {
-        for (Contacts c : contacts) {
+        for (Contact c : contacts) {
             System.out.println(c);
         }
     }
