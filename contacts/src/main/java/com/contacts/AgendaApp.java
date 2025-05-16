@@ -1,6 +1,7 @@
 package com.contacts;
 
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 public class AgendaApp {
@@ -31,7 +32,7 @@ public class AgendaApp {
 
             try {
                 option = Integer.parseInt(scanner.nextLine());
-                processarOpcao(option);
+                processOption(option);
             } catch (NumberFormatException e) {
                 System.out.println("Invalid input");
                 option = -1; // Força repetição
@@ -40,8 +41,8 @@ public class AgendaApp {
         } while (option != 0);
     }
 
-    public void processarOpcao(int opcao) {
-        switch (opcao) {
+    public void processOption(int option) {
+        switch (option) {
             case 1:
                 try {
                     addCont();
@@ -112,6 +113,7 @@ public class AgendaApp {
         c.setName(name);
         c.setNumber(number);
         c.setEmail(email);
+        c.setId(new Random().nextInt());
 
         if (Validator.emailValidator(c.getEmail()) && Validator.phoneValidator(c.getNumber())) {
             agenda.addContact(c);
@@ -142,27 +144,33 @@ public class AgendaApp {
                 System.out.println("Name: " + c.getName());
                 System.out.println("Number: " + c.getNumber());
                 System.out.println("Email: " + c.getEmail());
+                System.out.println("id: " + c.getId());
                 System.out.println("-------------------------");
             });
         }
     }
 
     private void editCont() throws InvalidEmailException, InvalidNumberException {
-        System.out.print("Name of the contact to edit: ");
-        String name = scanner.nextLine();
+        System.out.print("ID of the contact to edit: ");
+        int id;
+        try {
+            id = Integer.parseInt(scanner.nextLine());
+        } catch (NumberFormatException exception) {
+            throw new InvalidNumberException("Invalid id");
+        }
 
-        List<Contact> found = agenda.searchContact(name);
-        Contact contact = found.getFirst();
+        Contact contact = agenda.getContactById(id);
 
         if (contact == null) {
-            System.out.println("No contact found with that name.");
+            System.out.println("No contact found with that ID.");
         } else {
-            removeCont(contact.getName());
+            agenda.removeContactById(contact.getId());
             addCont(contact);
         }
     }
 }
-// TODO: Implementar futuramente,implementar metodo para salvar no arquivo,carregar do arquivo,criar id e implementar no programa,mudar o uso de list para set
+
+// TODO: Implementar futuramente,implementar metodo para salvar no arquivo,carregar do arquivo,melhorar metodos find para buscar por email,nome,id,numero,mudar o uso de list para set
         /*
         métodos para exportação e importação de arquivos de agenda
          */

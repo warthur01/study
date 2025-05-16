@@ -19,6 +19,19 @@ public class Agenda {
         contacts.removeIf(c -> c.getName().equalsIgnoreCase(name));
     }
 
+    public void removeContactById(int id) {
+        contacts.removeIf(c -> c.getId() == id);
+    }
+
+    public Contact getContactById(int id) {
+        for (Contact c : contacts) {
+            if (c.getId() == id) {
+                return c;
+            }
+        }
+        return null;
+    }
+
     public List<Contact> searchContact(String name) {
         List<Contact> found = new ArrayList<>();
         for (Contact c : contacts) {

@@ -4,6 +4,7 @@ public class Contact {
     private String name;
     private String number;
     private String email;
+    private int id;
 
     public String getName() {
         return name;
@@ -15,6 +16,10 @@ public class Contact {
 
     public String getEmail() {
         return email;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public void setName(String name) {
@@ -29,12 +34,18 @@ public class Contact {
         this.email = email;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     @Override
     public String toString() {
-        return "Contacts{" +
-                "name='" + name + '\'' +
+        return "Contact{" +
+                "email='" + email + '\'' +
+                ", name='" + name + '\'' +
                 ", number='" + number + '\'' +
-                ", email='" + email + '\'' +
+                ", id=" + id +
                 '}';
     }
 }
+
