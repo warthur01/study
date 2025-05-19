@@ -1,5 +1,11 @@
+
 package com.contacts;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.io.*;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,6 +37,7 @@ public class Agenda {
         }
         return null;
     }
+
     public List<Contact> findByNumber(String number) {
         List<Contact> result = new ArrayList<>();
         for (Contact c : contacts) {
@@ -66,6 +73,30 @@ public class Agenda {
     public void listContacts() {
         for (Contact c : contacts) {
             System.out.println(c);
+        }
+    }
+
+    public void saveToJson(String filename) {
+        try (Writer writer = new FileWriter(filename)) {
+            Gson gson = new Gson();
+            gson.toJson(contacts, writer);
+            System.out.println("Contacts saved as JSON.");
+        } catch (IOException e) {
+            System.out.println("Error saving to JSON: " + e.getMessage());
+        }
+    }
+
+    public void loadFromJson(String filename) {
+        try (Reader reader = new FileReader(filename)) {
+            Gson gson = new Gson();
+            Type listType = new TypeToken<List<Contact>>() {
+            }.getType();
+            List<Contact> loadedContacts = gson.fromJson(reader, listType);
+            contacts.clear();
+            contacts.addAll(loadedContacts);
+            System.out.println("Contacts loaded from JSON.");
+        } catch (IOException e) {
+            System.out.println("Error loading from JSON: " + e.getMessage());
         }
     }
 }

@@ -37,6 +37,20 @@ public class Contact {
     public void setId(int id) {
         this.id = id;
     }
+    public String toCSV() {
+        return   name + "," + number + "," + email;
+    }
+    public static Contact fromCSV(String line) {
+        String[] parts = line.split(",");
+        if (parts.length != 3) {
+            return null;
+        }
+        Contact c = new Contact();
+        c.setName(parts[0]);
+        c.setNumber(parts[1]);
+        c.setEmail(parts[2]);
+        return c;
+    }
 
     @Override
     public String toString() {
