@@ -31,6 +31,26 @@ public class Agenda {
         }
         return null;
     }
+    public List<Contact> searchByNumber(String number) {
+        List<Contact> result = new ArrayList<>();
+        for (Contact c : contacts) {
+            if (c.getNumber().equals(number)) {
+                result.add(c);
+            }
+        }
+        return result;
+    }
+
+
+    public List<Contact> searchByEmail(String email) {
+        List<Contact> result = new ArrayList<>();
+        for (Contact c : contacts) {
+            if (c.getEmail().equalsIgnoreCase(email)) {
+                result.add(c);
+            }
+        }
+        return result;
+    }
 
     public List<Contact> searchContact(String name) {
         List<Contact> found = new ArrayList<>();
