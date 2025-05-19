@@ -31,7 +31,7 @@ public class Agenda {
         }
         return null;
     }
-    public List<Contact> searchByNumber(String number) {
+    public List<Contact> findByNumber(String number) {
         List<Contact> result = new ArrayList<>();
         for (Contact c : contacts) {
             if (c.getNumber().equals(number)) {
@@ -42,7 +42,7 @@ public class Agenda {
     }
 
 
-    public List<Contact> searchByEmail(String email) {
+    public List<Contact> findByEmail(String email) {
         List<Contact> result = new ArrayList<>();
         for (Contact c : contacts) {
             if (c.getEmail().equalsIgnoreCase(email)) {
@@ -52,7 +52,7 @@ public class Agenda {
         return result;
     }
 
-    public List<Contact> searchContact(String name) {
+    public List<Contact> findByName(String name) {
         List<Contact> found = new ArrayList<>();
         for (Contact c : contacts) {
             if (c.getName().equalsIgnoreCase(name)) {
