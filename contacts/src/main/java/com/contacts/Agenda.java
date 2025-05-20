@@ -76,18 +76,22 @@ public class Agenda {
         }
     }
 
-    public void saveToJson(String filename) {
-        try (Writer writer = new FileWriter(filename)) {
+    public void saveToJson(String saveJson) {
+        String defaultPath = "D:\\IdeaProjects\\study";
+        String filename ="contacts.txt";
+        try (Writer writer = new FileWriter(defaultPath + filename)) {
             Gson gson = new Gson();
             gson.toJson(contacts, writer);
-            System.out.println("Contacts saved as JSON.");
+            System.out.println("Contacts saved as JSON in: " + defaultPath + filename);
         } catch (IOException e) {
             System.out.println("Error saving to JSON: " + e.getMessage());
         }
     }
 
-    public void loadFromJson(String filename) {
-        try (Reader reader = new FileReader(filename)) {
+    public void loadFromJson(String loadJson) {
+        String defaultPath = "D:\\IdeaProjects\\study";
+        String filename ="contacts.txt";
+        try (Reader reader = new FileReader(defaultPath + filename)) {
             Gson gson = new Gson();
             Type listType = new TypeToken<List<Contact>>() {
             }.getType();

@@ -11,6 +11,7 @@ public class AgendaApp {
     public AgendaApp() {
         this.agenda = new Agenda();
         this.scanner = new Scanner(System.in);
+        agenda.loadFromJson("contacts.txt");
     }
 
     public static void main(String[] args) {
@@ -27,6 +28,8 @@ public class AgendaApp {
             System.out.println("3. Search contact");
             System.out.println("4. List contacts");
             System.out.println("5. Edit contact");
+            System.out.println("6. Save contacts to file");
+            System.out.println("7. Load contacts from file");
             System.out.println("0. Exit");
             System.out.print("Chose a option: ");
 
@@ -66,6 +69,12 @@ public class AgendaApp {
                 } catch (InvalidEmailException | InvalidNumberException e) {
                     System.out.println(e.getMessage());
                 }
+                break;
+            case 6:
+                agenda.saveToJson("contacts.txt");
+                break;
+            case 7:
+                agenda.loadFromJson("contacts.txt");
                 break;
             case 0:
                 System.out.println("Finishing the program");
@@ -184,55 +193,7 @@ public class AgendaApp {
 
 
     private void editCont() throws InvalidEmailException, InvalidNumberException, NumberFormatException {
-        /*
-        System.out.println("Choose a search method to find the contact:");
-        System.out.println("1. Name");
-        System.out.println("2. Number");
-        System.out.println("3. Email");
-        System.out.print("Option: ");
 
-        int choice;
-        try {
-            choice = Integer.parseInt(scanner.nextLine());
-        } catch (NumberFormatException e) {
-            System.out.println("Invalid input. Please enter a number.");
-            return;
-        }
-
-        System.out.print("Enter the search value: ");
-        String value = scanner.nextLine();
-        List<Contact> matches;
-
-        switch (choice) {
-            case 1:
-                matches = agenda.searchContact(value);
-                break;
-            case 2:
-                matches = agenda.searchByNumber(value);
-                break;
-            case 3:
-                matches = agenda.searchByEmail(value);
-                break;
-            default:
-                System.out.println("Invalid option.");
-                return;
-        }
-
-        if (matches.isEmpty()) {
-            System.out.println("No contacts found.");
-            return;
-        }
-
-        System.out.println("Contact found:");
-        for (Contact c : matches) {
-            System.out.println("ID: " + c.getId());
-            System.out.println("Name: " + c.getName());
-            System.out.println("Number: " + c.getNumber());
-            System.out.println("Email: " + c.getEmail());
-            System.out.println("-------------------------");
-        }
-        Contact contact = matches.get(0);
-*/
         Contact contact = findContact();
         if (contact != null) {
 
@@ -241,9 +202,7 @@ public class AgendaApp {
             System.out.println("Current Number: " + contact.getNumber());
             System.out.println("Current Email: " + contact.getEmail());
 
-
             agenda.removeContact(contact.getName());
-
 
             System.out.print("New Name (leave blank to keep): ");
             String newName = scanner.nextLine();
@@ -274,7 +233,4 @@ public class AgendaApp {
     }
 }
 
-// TODO: Implementar futuramente,implementar metodo para salvar no arquivo,carregar do arquivo,mudar o uso de list para set
-        /*
-        métodos para exportação e importação de arquivos de agenda
-         */
+// TODO:
