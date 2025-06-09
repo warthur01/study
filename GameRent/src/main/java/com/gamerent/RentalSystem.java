@@ -72,6 +72,7 @@ public class RentalSystem {
     }
 
     private static void makeRental() {
+        listGames();
         System.out.print("Client id: ");
         int clientId = scanner.nextInt();
         scanner.nextLine();
@@ -89,13 +90,13 @@ public class RentalSystem {
             return;
         }
 
-        System.out.print("Game id: ");
-        int gameId = scanner.nextInt();
-        scanner.nextLine();
+        System.out.print("Game name: ");
+        String gameTitle = scanner.nextLine();
+
 
         Game foundGame = null;
         for (Game g : games) {
-            if (g.getGameId() == gameId) {
+            if (g.getTitle() == g.getTitle()) {
                 foundGame = g;
                 break;
             }

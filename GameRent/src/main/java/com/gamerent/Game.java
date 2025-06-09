@@ -1,24 +1,25 @@
 package com.gamerent;
 
+import java.util.UUID;
+
 public class Game {
-    private static int nextId = 1;
-    private final int gameId;
+    private final UUID gameId = UUID.randomUUID();
     private final String title;
 
     public Game(String title) {
-        this.gameId = nextId++;
         this.title = title;
-    }
-
-    public int getGameId() {
-        return gameId;
     }
 
     public String getTitle() {
         return title;
     }
 
+    public String getGameId() {
+        return gameId.toString();
+    }
+
+    @Override
     public String toString() {
-        return   title;
+        return title;
     }
 }
