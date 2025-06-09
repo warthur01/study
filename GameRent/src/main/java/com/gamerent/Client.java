@@ -1,39 +1,26 @@
 package com.gamerent;
+
 public class Client {
-    private String name;
-    private int id;
-    private String email;
+    private static int nextId = 1;
+    private final int id;
+    private final String name;
+    private final String email;
 
-    public Client() {
-    }
-
-    public Client(String name, int id, String email) {
+    public Client(String name, String email) {
+        this.id = nextId++;
         this.name = name;
-        this.id = id;
         this.email = email;
-    }
-
-    public String getName() {
-        return name;
     }
 
     public int getId() {
         return id;
     }
 
-    public String getEmail() {
-        return email;
+    public String getName() {
+        return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
+    public String toString() {
+        return   name + " (" + email + ")";
     }
 }
