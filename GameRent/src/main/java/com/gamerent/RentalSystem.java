@@ -78,6 +78,7 @@ public class RentalSystem {
         scanner.nextLine();
 
         Client foundClient = null;
+        //TODO: converter em stream
         for (Client c : clients) {
             if (c.getId() == clientId) {
                 foundClient = c;
@@ -95,9 +96,10 @@ public class RentalSystem {
 
 
         Game foundGame = null;
-        for (Game g : games) {
-            if (g.getTitle() == g.getTitle()) {
-                foundGame = g;
+        //TODO: converter em stream
+        for (Game game : games) {
+            if (gameTitle.trim().equalsIgnoreCase(game.getTitle().trim())) {
+                foundGame = game;
                 break;
             }
         }
@@ -113,11 +115,12 @@ public class RentalSystem {
 
     private static void listRentals() {
         if (rentals.isEmpty()) {
-            System.out.println("No rent located.");
+            System.out.println("No rental located.");
             return;
         }
 
         System.out.println("\n--- Rentals ---");
+        //TODO: converter em stream
         for (Rental r : rentals) {
             System.out.println(r);
         }
@@ -129,9 +132,9 @@ public class RentalSystem {
         }
 
         System.out.println("\n--- Client List ---");
+        //TODO: substituir por stream
         for (Client client : clients) {
-            System.out.println("ID: " + client.getId() +
-                    " | Name: " + client.toString());
+            System.out.println(client);
         }
     }
     private static void listGames() {
@@ -141,7 +144,7 @@ public class RentalSystem {
         }
         System.out.println("\n--- Game list ---");
         for (Game game : games) {
-            System.out.println("ID: " + game.getGameId() + " | Title: " + game.toString());
+            System.out.println(game);
         }
     }
 

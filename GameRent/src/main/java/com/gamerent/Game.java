@@ -20,6 +20,6 @@ public class Game {
 
     @Override
     public String toString() {
-        return title;
+        return "ID: " + this.getGameId() + " | Title: " + this.getTitle();
     }
 }

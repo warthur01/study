@@ -20,7 +20,11 @@ public class Client {
         return name;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
     public String toString() {
-        return   name + " (" + email + ")";
+        return "ID: " + this.getId() + " | Name: " + this.getName() + " | Email: " + this.getEmail();
     }
 }
