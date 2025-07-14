@@ -84,32 +84,6 @@ public class AgendaApp {
         }
     }
 
-    private void addCont(Contact contact) throws InvalidEmailException, InvalidNumberException {
-        System.out.print("Name: ");
-        String name = scanner.nextLine();
-        System.out.print("Number: ");
-        String number = scanner.nextLine();
-        System.out.print("Email: ");
-        String email = scanner.nextLine();
-
-        if (!name.isEmpty()) {
-            contact.setName(name);
-        }
-
-        if (!number.isEmpty()) {
-            contact.setNumber(number);
-        }
-        if (!email.isEmpty()) {
-            contact.setEmail(email);
-        }
-
-        if (Validator.emailValidator(contact.getEmail()) && Validator.phoneValidator(contact.getNumber())) {
-            agenda.addContact(contact);
-            System.out.println("successfully saved a contact!");
-        }
-
-    }
-
 
     private void addCont() throws InvalidEmailException, InvalidNumberException {
         System.out.print("Name: ");

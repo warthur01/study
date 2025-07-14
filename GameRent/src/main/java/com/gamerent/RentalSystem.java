@@ -1,5 +1,7 @@
 package com.gamerent;
+
 import java.util.*;
+
 import com.gamerent.InvalidEmailException;
 
 
@@ -77,14 +79,10 @@ public class RentalSystem {
         int clientId = scanner.nextInt();
         scanner.nextLine();
 
-        Client foundClient = null;
-        //TODO: converter em stream
-        for (Client c : clients) {
-            if (c.getId() == clientId) {
-                foundClient = c;
-                break;
-            }
-        }
+        Client foundClient = clients.stream()
+                .filter(c -> c.getId() == clientId)
+                .findFirst()
+                .orElse(null);
 
         if (foundClient == null) {
             System.out.println("Client not found.");
@@ -95,20 +93,17 @@ public class RentalSystem {
         String gameTitle = scanner.nextLine();
 
 
-        Game foundGame = null;
-        //TODO: converter em stream
-        for (Game game : games) {
-            if (gameTitle.trim().equalsIgnoreCase(game.getTitle().trim())) {
-                foundGame = game;
-                break;
-            }
-        }
-
+        Game foundGame = games.stream().filter(game -> game.getTitle().equalsIgnoreCase(gameTitle)).findFirst().orElse(null);
         if (foundGame == null) {
             System.out.println("Game not found.");
             return;
-        }
 
+        }
+        if (!foundGame.isAvailable()) {
+            System.out.println("This game is already rented.");
+            return;
+        }
+        foundGame.setAvailable(false);
         rentals.add(new Rental(foundClient, foundGame));
         System.out.println("Rent done successfully!");
     }
@@ -120,11 +115,9 @@ public class RentalSystem {
         }
 
         System.out.println("\n--- Rentals ---");
-        //TODO: converter em stream
-        for (Rental r : rentals) {
-            System.out.println(r);
-        }
+        rentals.stream().forEach(System.out::println);
     }
+
     private static void listClients() {
         if (clients.isEmpty()) {
             System.out.println("No client registered.");
@@ -132,20 +125,16 @@ public class RentalSystem {
         }
 
         System.out.println("\n--- Client List ---");
-        //TODO: substituir por stream
-        for (Client client : clients) {
-            System.out.println(client);
-        }
+        clients.stream().forEach(System.out::println);
     }
+    
     private static void listGames() {
         if (games.isEmpty()) {
             System.out.println("No game registered.");
             return;
         }
         System.out.println("\n--- Game list ---");
-        for (Game game : games) {
-            System.out.println(game);
-        }
+        games.stream().forEach(System.out::println);
     }
 
     private static boolean isValidEmail(String email) {
