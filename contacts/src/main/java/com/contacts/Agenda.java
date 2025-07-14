@@ -102,5 +102,6 @@ public class Agenda {
         } catch (IOException e) {
             System.out.println("Error loading from JSON: " + e.getMessage());
         }
+
     }
 }
