@@ -1,0 +1,1 @@
+A anotação @Qualifier no Spring é utilizada para resolver ambiguidades de injeção de dependência quando há múltiplos beans (instâncias de classes) do mesmo tipo no contexto da aplicação. Ao aplicar @Qualifier juntamente com @Autowired, você pode especificar qual bean exato deve ser injetado, garantindo que o Spring não se confunda ao escolher entre os candidatos.

@@ -1,0 +1,5 @@
+JPA (Java Persistence API) é uma especificação padrão da linguagem Java que define uma interface para persistência de dados, facilitando o mapeamento objeto-relacional (ORM) de objetos Java em bancos de dados. É crucial entender que a JPA é apenas uma especificação, e para funcionar, necessita de uma implementação como o Hibernate, que é um framework ORM popular. 
+O que a JPA faz?
+Simplifica a persistência: Abstrai a complexidade do acesso a bancos de dados relacionais, permitindo que os desenvolvedores trabalhem com objetos Java de forma mais orientada a objetos. 
+Mapeamento Objeto-Relacional (ORM): Permite mapear classes Java (chamadas "beans de entidade") para tabelas de banco de dados e suas colunas usando anotações como @Entity. 
+Linguagem de Consulta (JPQL): Oferece a Java Persistence Query Language (JPQL) para consultas semelhantes a SQL, mas com foco nos objetos e suas relações. 

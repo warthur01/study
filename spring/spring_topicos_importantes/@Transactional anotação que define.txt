@@ -1,0 +1,1 @@
+@Transactional anotação que define uma operação que tem que ser concluída ou totalmente encerrada,garantindo que não haverá perda de dados

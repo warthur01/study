@@ -1,0 +1,1 @@
+@repository é uma anotação que define uma classe como uma classe que manipula e acessa dados no banco de dados, Essa anotação abstrai a camada de acesso a dados, fornecendo uma interface limpa para a lógica de negócios interagir com os dados sem precisar se preocupar com os detalhes de persistência. 

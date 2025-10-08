@@ -1,0 +1,7 @@
+com\contacts\AgendaApp.class
+com\contacts\Database.class
+com\contacts\Contact.class
+com\contacts\InvalidNumberException.class
+com\contacts\Validator.class
+com\contacts\Agenda.class
+com\contacts\InvalidEmailException.class

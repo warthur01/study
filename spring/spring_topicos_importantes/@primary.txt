@@ -1,0 +1,1 @@
+Marca o bean como primário,então quando ele for chamado o spring dará prioridade para o bean marcado como @Primary

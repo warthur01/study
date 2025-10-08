@@ -1,0 +1,1 @@
+@Lazy cria apenas os objetos necessários, desabilitada por padrão, não ativa componentes web related sem requisição
