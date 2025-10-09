@@ -2,6 +2,9 @@ package com.agenda.agenda.service;
 
 import com.agenda.agenda.dao.ContactDao;
 import com.agenda.agenda.entity.Contact;
+import com.agenda.agenda.validation.InvalidEmailException;
+import com.agenda.agenda.validation.InvalidNumberException;
+import com.agenda.agenda.validation.Validator;
 import org.springframework.stereotype.Service;
 import java.util.List;
 
@@ -14,6 +17,12 @@ public class ContactService {
         this.contactDao = contactDao;
     }
 
+    public void create(Contact contact) throws InvalidEmailException, InvalidNumberException {
+        Validator.emailValidator(contact.getEmail());
+        Validator.phoneValidator(contact.getNumber());
+        contactDao.createContact(contact);
+    }
+
     public List<Contact> listAll() {
         return contactDao.findAllContacts();
     }
@@ -22,24 +31,13 @@ public class ContactService {
         return contactDao.findContactById(id);
     }
 
-    public Contact create(Contact contact) {
-        contactDao.createContact(contact);
-        return contact;
-    }
-
-    public Contact update(Long id, Contact updated) {
-        Contact existing = contactDao.findContactById(id);
-        if (existing == null) {
-            throw new RuntimeException("Contact not found!");
-        }
-        existing.setName(updated.getName());
-        existing.setEmail(updated.getEmail());
-        existing.setNumber(updated.getNumber());
-        contactDao.updateContact(existing);
-        return existing;
-    }
-
     public void delete(Long id) {
         contactDao.deleteContact(id);
+    }
+
+    public void update(Contact contact) throws InvalidEmailException, InvalidNumberException {
+        Validator.emailValidator(contact.getEmail());
+        Validator.phoneValidator(contact.getNumber());
+        contactDao.updateContact(contact);
     }
 }

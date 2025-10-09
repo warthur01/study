@@ -31,8 +31,8 @@ public class ContactDaoImp implements ContactDao {
 
     @Override
     public List<Contact> findAllContacts() {
-        return entityManager.createQuery("FROM Contacts", Contact.class)
-                .getResultList();
+        return this.entityManager.createQuery("FROM Contact", Contact.class).getResultList();
+
     }
 
     @Override
