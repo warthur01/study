@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="87da62d7-7207-4e59-a914-fd0949842550" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../01-spring-boot-rest-crud/src/main/java/com/luv2code/demo/entity/Student.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../01-spring-boot-rest-crud/src/main/java/com/luv2code/demo/rest/DemoRestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../01-spring-boot-rest-crud/src/main/java/com/luv2code/demo/rest/StudentErrorResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../01-spring-boot-rest-crud/src/main/java/com/luv2code/demo/rest/StudentNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../01-spring-boot-rest-crud/src/main/java/com/luv2code/demo/rest/StudentRestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../01-spring-boot-rest-crud/src/main/java/com/luv2code/demo/rest/StudentRestExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../02-spring-boot-rest-crud-employee/src/main/java/com/luv2code/springboot/cruddemo/dao/EmployeeDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../02-spring-boot-rest-crud-employee/src/main/java/com/luv2code/springboot/cruddemo/dao/EmployeeDAOJpaImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../02-spring-boot-rest-crud-employee/src/main/java/com/luv2code/springboot/cruddemo/entity/Employee.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../02-spring-boot-rest-crud-employee/src/main/java/com/luv2code/springboot/cruddemo/rest/EmployeeRestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../02-spring-boot-rest-crud-employee/src/main/java/com/luv2code/springboot/cruddemo/service/EmployeeService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../02-spring-boot-rest-crud-employee/src/main/java/com/luv2code/springboot/cruddemo/service/EmployeeServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../cadastro_de_ninjas" beforeDir="false" afterPath="$PROJECT_DIR$/../../../cadastro_de_ninjas" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;warthur01&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/warthur01/study.git&quot;,
+    &quot;accountId&quot;: &quot;c195cd45-6035-4237-ae2e-b59dcc4b36fc&quot;
+  }
+}</component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="34CHeY6oip9J5nk0peNhC49EfWr" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "D:/study/workspace/spring/spring_boot_udemy/04-spring-boot-rest-crud/02-spring-boot-rest-crud-employee -with-spring-data-jpa"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration default="true" type="GroovyScriptRunConfiguration" factoryName="Groovy">
+      <setting name="path" value="" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <setting name="workDir" value="file://$PROJECT_DIR$" />
+      <setting name="debug" value="false" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="02-spring-boot-rest-crud-employee -with-spring-data-jpa" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="02-spring-boot-rest-crud-employee -with-spring-data-jpa" />
+      <option name="filePath" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="87da62d7-7207-4e59-a914-fd0949842550" name="Changes" comment="" />
+      <created>1760710729864</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1760710729864</updated>
+    </task>
+    <servers />
+  </component>
+</project>
