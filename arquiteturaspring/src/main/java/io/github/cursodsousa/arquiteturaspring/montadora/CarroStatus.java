@@ -1,4 +1,4 @@
 package io.github.cursodsousa.arquiteturaspring.montadora;
 
-public class CarroStatus {
+public record CarroStatus(String mensagem) {
 }

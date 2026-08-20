@@ -1,4 +1,8 @@
 package io.github.cursodsousa.libraryapi.model;
 
-public class GeneroLivro {
+public enum GeneroLivro {
+    FICCAO,
+    FANTASIA,
+    TERROR,
+    BIOGRAFIA
 }

@@ -1,4 +1,7 @@
 package io.github.cursodsousa.arquiteturaspring.montadora;
 
-public class TipoMotor {
+public enum TipoMotor {
+    ASPIRADO,
+    TURBO,
+    ELETRICO
 }

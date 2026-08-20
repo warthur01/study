@@ -1,4 +1,4 @@
--- Table: public.category
+    -- Table: public.category
 
 -- DROP TABLE IF EXISTS public.category;
 
